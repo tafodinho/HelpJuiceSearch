@@ -1,0 +1,10 @@
+
+<!-- app/views/search/index.html.erb -->
+<div id="app" class="flex flex-col justify-center items-center w-full">
+  <p class="font-bold text-4xl bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">HelpJuice Search</p>
+  <div class="search-area w-full flex flex justify-center mb-8">
+    <input id="search-box" class="w-[40%] border-solid border-2 rounded-lg border-blue-400 my-4 h-12 px-2 focus:outline-none shadow-md" value=""/>
+  </div>
+  <%= render "analytics" %>
+  <%= @allSearches %>
+</div>
