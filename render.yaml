@@ -1,6 +1,6 @@
 databases:
   - name: HelpJuiceSearch
-    databaseName: HelpJuiceSearch
+    databaseName: helpjuicesearch
     user: mysite
     plan: free
 
