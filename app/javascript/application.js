@@ -7,17 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
   let analyticsArea = document.getElementById("analytics-area");
   const inputBox = document.getElementById("search-box");
   inputBox.addEventListener("keyup", function (e) {
-    if (e.key === " " || e.key === "Enter") {
+    if (e.key === " ") {
       doneTyping();
     } else if (e.key === "Enter") {
       doneTyping();
-      updateAnalytics();
+      // updateAnalytics();
       inputBox.value = "";
     }
   });
 
-  inputBox.addEventListener("input", function (e) {
-    console.log(e);
+  inputBox.addEventListener("input", function () {
     if (!realTimeTypingElement) {
       realTimeTypingElement = document.createElement("p");
       const hr = document.createElement("hr");
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       analyticsArea.prepend(hr);
       analyticsArea.prepend(realTimeTypingElement);
     }
-    realTimeTypingElement.textContent += e.data !== null ? e.data : "";
+    realTimeTypingElement.textContent = this.value;
   });
 
   function doneTyping() {
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.open("GET", "/search?query=" + encodeURIComponent(query), true);
 
     xhr.onload = function () {
-      console.log(xhr);
       if (xhr.status == 200) {
         console.log("Search recorded:", query);
       }
@@ -43,15 +41,15 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.send();
   }
 
-  function updateAnalytics() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/analytics", true);
-    xhr.onload = function () {
-      console.log(xhr);
-      if (xhr.status == 200) {
-        console.log("Search recorded:", xhr);
-      }
-    };
-    xhr.send();
-  }
+  // function updateAnalytics() {
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.open("GET", "/analytics", true);
+  //   xhr.onload = function () {
+  //     console.log(xhr);
+  //     if (xhr.status == 200) {
+  //       console.log("Search recorded:", xhr);
+  //     }
+  //   };
+  //   xhr.send();
+  // }
 });
