@@ -6,16 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
   let realTimeTypingElement = null;
   let analyticsArea = document.getElementById("analytics-area");
   const inputBox = document.getElementById("search-box");
-  setInterval(regularUpdate, 5000);
+  setInterval(regularUpdate, 10000);
   inputBox.addEventListener("keyup", function (e) {
-    console.log("BACK", this.value, e.key);
+    if (e.key != "Backspace") {
+      doneTyping();
+    }
     if (e.key === "Enter") {
       doneTyping();
       // updateAnalytics();
       inputBox.value = "";
-    }
-    if (e.key != "Backspace") {
-      doneTyping();
     }
     if (!realTimeTypingElement) {
       realTimeTypingElement = document.createElement("p");
@@ -28,21 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     realTimeTypingElement.textContent = this.value;
   });
 
-  inputBox.addEventListener("input", function (e) {
-    // console.log("BACK", this.value, e.key);
-    // if(this.value != "Backspace")
-    // doneTyping();
-    // if (!realTimeTypingElement) {
-    //   realTimeTypingElement = document.createElement("p");
-    //   const hr = document.createElement("hr");
-    //   realTimeTypingElement.className =
-    //     "typing mx-4 my-2 italic text-slate-600";
-    //   analyticsArea.prepend(hr);
-    //   analyticsArea.prepend(realTimeTypingElement);
-    // }
-    // realTimeTypingElement.textContent = this.value;
-  });
-
   function doneTyping() {
     var query = document.getElementById("search-box").value.trim();
     var xhr = new XMLHttpRequest();
@@ -50,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     xhr.onload = function () {
       if (xhr.status == 200) {
-        console.log("Search recorded:", query);
+        console.log("added to cache", query);
       }
     };
     xhr.send();
@@ -62,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     xhr.onload = function () {
       if (xhr.status == 200) {
-        console.log("Search recorded:", query);
+        console.log("Search recorded to Db:", query);
       }
     };
     xhr.send();
