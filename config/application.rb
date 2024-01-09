@@ -10,7 +10,8 @@ module HelpjuiceSearchEngine
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    
+    config.cache_store = :redis_store, 'redis://127.0.0.1:6379/0/cache', { expires_in: 1.day }
     # config.active_job.queue_adapter = :sidekiq
     # Configuration for the application, engines, and railties goes here.
     #

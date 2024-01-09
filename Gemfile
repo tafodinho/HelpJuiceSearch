@@ -43,6 +43,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'sidekiq'
+
+gem 'hiredis'
+gem 'redis-rails'
+gem 'rufus-scheduler'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
