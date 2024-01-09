@@ -17,7 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_06_032336) do
   create_table "search_logs", force: :cascade do |t|
     t.string "query"
     t.string "user_ip"
-    t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

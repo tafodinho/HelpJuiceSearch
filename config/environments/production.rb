@@ -57,7 +57,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   config.active_record.cache_versioning = false
-  config.cache_store = :redis_store, 'redis://red-cmecmkf109ks73c409g0:6379/0/cache', { expires_in: 90.minutes }
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL']}, { expires_in: 90.minutes }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :sidekiq
