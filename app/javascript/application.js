@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let realTimeTypingElement = null;
   let analyticsArea = document.getElementById("analytics-area");
   const inputBox = document.getElementById("search-box");
+  const searchButton = document.getElementById("search-button");
   setInterval(regularUpdate, 10000);
+
+  searchButton.addEventListener("click", function () {});
+
   inputBox.addEventListener("keyup", function (e) {
     if (e.key != "Backspace") {
       doneTyping();
