@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.open("GET", "/regUpdates", true);
 
     xhr.onload = function () {
-      if (xhr.status == 200) {
-        console.log("Search recorded to Db:", query);
+      if (xhr.status == 204) {
+        console.log("Search recorded to Db");
       }
     };
     xhr.send();
