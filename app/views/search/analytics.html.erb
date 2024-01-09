@@ -8,16 +8,16 @@
       <hr class="last:hidden border-4">
       <div id="analytics-area">
         <div class="flex justify-between">
-          <p class="mx-4 my-2 w-[80%]">Query</p>
+          <p class="mx-4 my-2 w-[70%]">Query</p>
           <p class="mx-4 my-2 w-[10%]">Count</p>
-          <p class="mx-4 my-2 w-[10%]">Ip</p>
+          <p class="mx-4 my-2 w-[20%]">Ip</p>
         </div>
          <hr class="last:hidden border-4">
         <% @searches.each do |search| %>
           <div class="flex justify-between">
-            <p class="mx-4 my-2 w-[80%]"><%= search[0][0] %></p>
+            <p class="mx-4 my-2 w-[70%]"><%= search[0][0] %></p>
             <p class="mx-4 my-2 w-[10%]"><%= search[1] %></p>
-            <p class="mx-4 my-2 w-[10%]"><%= search[0][1] %></p>
+            <p class="mx-4 my-2 w-[20%]"><%= search[0][1] %></p>
           </div>
           <hr class="last:hidden">
         <% end %>
