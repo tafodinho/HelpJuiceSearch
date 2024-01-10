@@ -8,6 +8,7 @@ class SearchController < ApplicationController
   def index
     # @searches = SearchLog.order(count: :desc).take(10)
     @searches = SearchLog.group(:query).count.sort_by { |_, count| -count }.take(10)
+    render json: { status: 'success' }
   end
 
   def search
@@ -34,6 +35,7 @@ class SearchController < ApplicationController
   def analytics
     @searches = SearchLog.group(:query, :user_ip).count.sort_by { |_, count| -count }.take(10)
     render "analytics"
+    render json: { status: 'success' }
   end
 
   private
