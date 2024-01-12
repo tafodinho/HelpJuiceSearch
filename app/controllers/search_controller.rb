@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 
   def index
     # @searches = SearchLog.order(count: :desc).take(10)
-    @searches = SearchLog.group(:query).count.sort_by { |_, count| -count }.take(10)
+    @searches = SearchLog.group(:query).count.sort_by { |_, count| -count }.take(100)
   end
 
   def search

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let analyticsArea = document.getElementById("analytics-area");
   const inputBox = document.getElementById("search-box");
   const searchButton = document.getElementById("search-button");
-  setInterval(regularUpdate, 10000);
+  setInterval(regularUpdate, 5000);
 
   searchButton.addEventListener("click", function () {});
 
